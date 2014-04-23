@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Demo Site</title><link>http://getnikola.com/</link><description>This is a demo site for Nikola.</description><atom:link href="http://getnikola.com/rss.xml" type="application/rss+xml" rel="self"></atom:link><lastBuildDate>Wed, 23 Apr 2014 13:04:03 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>20140323</title><link>http://getnikola.com//posts/20140323.html</link><description>&lt;p&gt;Write your post here.
+中文测试&lt;/p&gt;</description><guid>http://getnikola.com//posts/20140323.html</guid><pubDate>Wed, 23 Apr 2014 13:01:08 GMT</pubDate></item></channel></rss>
