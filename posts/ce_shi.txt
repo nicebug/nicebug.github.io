@@ -1,0 +1,11 @@
+.. link: 
+.. description: 
+.. tags: 
+.. date: 2014/04/23 19:22:13
+.. title: ce_shi
+.. slug: ce_shi
+
+.. code-block:: python
+   :number-lines:
+   
+   print("Our virtues and our falling")
