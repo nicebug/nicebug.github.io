@@ -1,0 +1,9 @@
+.. title: nikola unicode error
+.. slug: nikola-unicode-error
+.. date: 2014/04/28 00:20:50
+.. tags: 
+.. link: 
+.. description: 
+.. type: text
+
+安装nikola出现unicode error 问题，查询了半天发现是阿里旺旺导致注册表中有中文后缀名，郁闷，标记之。
