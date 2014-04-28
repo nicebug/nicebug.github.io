@@ -1,0 +1,9 @@
+.. title: nikola 6.4
+.. slug: nikola-64
+.. date: 2014/04/28 13:16:04
+.. tags: 
+.. link: 
+.. description: 
+.. type: text
+
+nikola安装过程中出现unicode error，查到原因是阿里旺旺在注册中建立了一个中文后缀名文件，无语，删除之就解决了。
