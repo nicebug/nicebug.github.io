@@ -75,8 +75,10 @@
 
     </small>
     <hr>
-    <p>在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。
-.. gist:: ab5c883</p>
+    <p>在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。</p>
+<pre class="code sh literal-block">
+<span class="ln">1 </span>find <span class="k">${</span><span class="nv">WORK_HOME</span><span class="k">}</span> -name <span class="s2">"${filename}"</span> -type f | xargs -i cp -rf <span class="k">${</span><span class="nv">filename</span><span class="k">}</span> <span class="o">{}</span>
+</pre>
     
     <ul class="pager">
         <li class="previous">

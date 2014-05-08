@@ -6,4 +6,8 @@
 .. slug: find-all-same-file-and-replace-then
 
 在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。
-.. gist:: ab5c883
+
+.. code-block:: sh
+   :number-lines:
+   
+   find ${WORK_HOME} -name "${filename}" -type f | xargs -i cp -rf ${filename} {}
