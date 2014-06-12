@@ -9,7 +9,11 @@
     <meta name="author" content="nicebug">
     <title>find all same file and replace then | 一个2BQA</title>
     
-            <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+            <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
@@ -75,7 +79,13 @@
 
     </small>
     <hr>
-    <p>在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。</p>
+    <!-- link: -->
+<!-- description: -->
+<!-- tags: -->
+<!-- date: 2014/05/08 17:56:09 -->
+<!-- title: find all same file and replace then -->
+<!-- slug: find-all-same-file-and-replace-then -->
+<p>在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。</p>
 <pre class="code sh literal-block">
 <span class="ln">1 </span>find <span class="k">${</span><span class="nv">WORK_HOME</span><span class="k">}</span> -name <span class="s2">"${filename}"</span> -type f | xargs -i cp -rf <span class="k">${</span><span class="nv">filename</span><span class="k">}</span> <span class="o">{}</span>
 </pre>
@@ -124,7 +134,9 @@
 </div>
 
 
-            <script src="../assets/js/all-nocdn.js" type="text/javascript"></script>
+            <script src="../assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+            <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../assets/js/jquery.colorbox-min.js" type="text/javascript"></script>
 
 
 	
