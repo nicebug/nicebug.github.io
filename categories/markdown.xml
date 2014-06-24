@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Go Go (markdown)</title><link>http://nicebug.github.io/</link><description>唯一的一块净土.</description><atom:link href="http://nicebug.github.io/categories/markdown.xml" type="application/rss+xml" rel="self"></atom:link><lastBuildDate>Tue, 24 Jun 2014 22:59:14 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>markdown syntax</title><link>http://nicebug.github.io/posts/markdown-syntax.html</link><description>&lt;p&gt;normal text&lt;/p&gt;
+&lt;p&gt;中文&lt;/p&gt;
+&lt;h2&gt;tag1&lt;/h2&gt;
+&lt;h3&gt;tag2&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;markdown syntax&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;this is markdown&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;this is markdown too&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;how do &lt;code&gt;markdown&lt;/code&gt; work&lt;/p&gt;
+&lt;p&gt;some code&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;"hello world"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="http://nicebug.github.io/posts/github.com"&gt;Github&lt;/a&gt;&lt;/p&gt;</description><category>markdown</category><guid>http://nicebug.github.io/posts/markdown-syntax.html</guid><pubDate>Tue, 24 Jun 2014 22:46:28 GMT</pubDate></item></channel></rss>
