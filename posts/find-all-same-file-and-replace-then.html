@@ -1,63 +1,102 @@
-<!DOCTYPE html><html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="nicebug">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>find all same file and replace then | Go Go</title>
+
     
             <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
         <link href="../assets/css/code.css" rel="stylesheet" type="text/css">
         <link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css">
         <link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <![endif]-->
+
+    
             <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 
-    
+      <link rel="canonical" href="http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html">
 
 
 
     
+        <!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
+
+    
+
+
+    
+
+    <meta name="author" content="nicebug">
+    
+        <meta name="og:title" content="find all same file and replace then">
+        <meta name="og:url" content="http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html">
+            <meta name="og:description" content='在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。
+
+1 find ${WORK_HOME} -name "${filename}" -type f | xargs -i cp -rf ${filename} {}'>
+        <meta name="og:site_name" content="Go Go">
+        <meta name="og:type" content="article">
+
+    
+
+    
+
+
+
 </head>
 <body>
+
 <!-- Menubar -->
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../">Go Go</a>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            
-                <li><a href="../archive.html">Archives</a>
-                </li><li><a href="../categories/index.html">Tags</a>
-                </li><li><a href="aboutme.html">About</a>
-                </li><li><a href="../rss.xml">RSS</a>
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://nicebug.github.io/">
 
-        </li></ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            
-            
+                <span id="blog-title">Go Go</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
                 
+                <li>
+<a href="../archive.html">Archives</a>
+                </li>
+<li>
+<a href="../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="aboutme.html">About</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
     <li>
     <a href="find-all-same-file-and-replace-then.txt" id="sourcelink">Source</a>
     </li>
 
-        </ul>
-    </div><!-- /.navbar-collapse -->
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
 </nav>
 
 <!-- End of Menubar -->
@@ -67,94 +106,125 @@
         <!--Body content-->
         <div class="row">
             
-    <div class="postbox">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
     
-    <h1>find all same file and replace then</h1>
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">find all same file and replace then</a></h1>
 
-    <hr>
-    <small>
-        Posted: <time class="published" datetime="2014-05-08T17:56:09">2014-05-08 17:56</time>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">nicebug</span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2014-05-08T17:56:09+00:00" itemprop="datePublished" title="Publication date">2014-05-08 17:56</time></a></p>
+                <p class="commentline">
+        
+    <a href="find-all-same-file-and-replace-then.html#disqus_thread" data-disqus-identifier="cache/posts/find-all-same-file-and-replace-then.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="find-all-same-file-and-replace-then.txt" id="sourcelink">Source</a></p>
+
+        </div>
         
 
-        
+    </header>
 
-    </small>
-    <hr>
-    <!-- link: -->
-<!-- description: -->
-<!-- tags: -->
-<!-- date: 2014/05/08 17:56:09 -->
-<!-- title: find all same file and replace then -->
-<!-- slug: find-all-same-file-and-replace-then -->
-<p>在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。</p>
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <p>在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。</p>
 <pre class="code sh literal-block">
 <span class="ln">1 </span>find <span class="k">${</span><span class="nv">WORK_HOME</span><span class="k">}</span> -name <span class="s2">"${filename}"</span> -type f | xargs -i cp -rf <span class="k">${</span><span class="nv">filename</span><span class="k">}</span> <span class="o">{}</span>
 </pre>
+    </div>
+    <aside class="postpromonav">
+    <nav>
     
-    <ul class="pager">
-        <li class="previous">
-            <a href="nikola-64.html">← Previous post</a>
-        </li>
-        <li class="next">
-            <a href="plan-in-201406-201412.html">Next post →</a>
-        </li>
-    </ul>
 
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="nikola-64.html" rel="prev" title="nikola 6.4">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="plan-in-201406-201412.html" rel="next" title="2014年下半年计划">Next post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
         
         
         <div id="disqus_thread"></div>
-        <script type="text/javascript">
-        var disqus_shortname ="nikolademo";
-            var disqus_url="http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html";
-        var disqus_title="find all same file and replace then";
-        var disqus_identifier="cache\posts\find-all-same-file-and-replace-then.html";
-        var disqus_config = function () {
+        <script>
+        var disqus_shortname ="nikolademo",
+            disqus_url="http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html",
+        disqus_title="find all same file and replace then",
+        disqus_identifier="cache/posts/find-all-same-file-and-replace-then.html",
+        disqus_config = function () {
             this.language = "en";
         };
         (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </section>
     
 
-    </div>
+</article>
+
+        
+       <script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
 
         </div>
         <!--End of body content-->
 
         <footer>
             Contents © 2014         <a href="mailto:alldoisbug@gmail.com">nicebug</a> - Powered by         <a href="http://getnikola.com">Nikola</a>         
+            
         </footer>
     </div>
 </div>
 
 
-            <script src="../assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-            <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../assets/js/jquery.colorbox-min.js" type="text/javascript"></script>
-
-
-	
+            <script src="../assets/js/jquery.min.js"></script>
+            <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/jquery.colorbox-min.js"></script>
+    
 <!-- Social buttons -->
 <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
 <a class="addthis_button_more">Share</a>
-<ul><li><a class="addthis_button_facebook"></a>
-</li><li><a class="addthis_button_google_plusone_share"></a>
-</li><li><a class="addthis_button_linkedin"></a>
-</li><li><a class="addthis_button_twitter"></a>
-</li></ul>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
 </div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
 <!-- End of social buttons -->
 
 
-    <script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
 
 
 </body>

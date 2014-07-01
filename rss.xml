@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Go Go</title><link>http://nicebug.github.io/</link><description>唯一的一块净土.</description><atom:link href="http://nicebug.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><lastBuildDate>Tue, 24 Jun 2014 22:59:14 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>markdown syntax</title><link>http://nicebug.github.io/posts/markdown-syntax.html</link><description>&lt;p&gt;normal text&lt;/p&gt;
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Go Go</title><link>http://nicebug.github.io/</link><description>唯一的一块净土.</description><language>en</language><lastBuildDate>Tue, 01 Jul 2014 01:21:24 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>markdown syntax</title><link>http://nicebug.github.io/posts/markdown-syntax.html</link><dc:creator>nicebug</dc:creator><description>&lt;p&gt;normal text&lt;/p&gt;
 &lt;p&gt;中文&lt;/p&gt;
 &lt;h2&gt;tag1&lt;/h2&gt;
 &lt;h3&gt;tag2&lt;/h3&gt;
@@ -10,41 +10,22 @@
 &lt;p&gt;&lt;strong&gt;this is markdown too&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;how do &lt;code&gt;markdown&lt;/code&gt; work&lt;/p&gt;
 &lt;p&gt;some code&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;"hello world"&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;"hello world"&lt;/span&gt;
+&lt;/pre&gt;
 
 
-&lt;p&gt;&lt;a href="http://nicebug.github.io/posts/github.com"&gt;Github&lt;/a&gt;&lt;/p&gt;</description><category>markdown</category><guid>http://nicebug.github.io/posts/markdown-syntax.html</guid><pubDate>Tue, 24 Jun 2014 22:46:28 GMT</pubDate></item><item><title>程序与测试</title><link>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</link><description>&lt;p&gt;今天有点感受挺深的，在分析一个系统时，身为测试的我在看到策划案子中会觉得很复杂，各种关系夹杂在其中，
+&lt;p&gt;&lt;a href="https://github.com/"&gt;Github&lt;/a&gt;&lt;/p&gt;</description><category>markdown</category><guid>http://nicebug.github.io/posts/markdown-syntax.html</guid><pubDate>Tue, 24 Jun 2014 22:46:28 GMT</pubDate></item><item><title>程序与测试</title><link>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</link><dc:creator>nicebug</dc:creator><description>&lt;p&gt;今天有点感受挺深的，在分析一个系统时，身为测试的我在看到策划案子中会觉得很复杂，各种关系夹杂在其中，
 其中有个紧张度的概念，大概是紧张度控制AI的刷新，当时讨论说怎么控制不同人的紧张度，怎么管理紧张度，
 讨论的很激烈，从测试的角度分析了几种方法，当总是觉得有问题。&lt;/p&gt;
 &lt;p&gt;后来实际跟程序交谈了下，程序在每个角色身上都维护了紧张度，每个循环检查玩家的紧张度，当某个玩家的紧张度达到波峰后就不再刷新AI，
 好吧，做法很简单，数据的管理从实现上既简单又明了。&lt;/p&gt;
 &lt;p&gt;回想了下，测试和程序真的差异很大，不只在收入上，测试干久了，缺少动手能力，这个对于搞技术的人来说真的太可怕了，
-这样差距就会越来越大，相应的收入差距也就越来越明显，或许真的有测试被淘汰的一天吧。&lt;/p&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</guid><pubDate>Thu, 12 Jun 2014 23:52:35 GMT</pubDate></item><item><title>2014年下半年计划</title><link>http://nicebug.github.io/posts/plan-in-201406-201412.html</link><description>&lt;!-- title: 2014年下半年计划 --&gt;
-&lt;!-- slug: plan-in-201406-201412 --&gt;
-&lt;!-- description: 成长太慢，立个计划促进一下 --&gt;
-&lt;!-- tags: 日常生活 --&gt;
-&lt;!-- link: --&gt;
-&lt;!-- date: 2014/06/04 12:38:17 --&gt;
-&lt;p&gt;越发觉得自己没有成长，工作上越来越迷茫，自己确实不是一个有很强目标性的人，
+这样差距就会越来越大，相应的收入差距也就越来越明显，或许真的有测试被淘汰的一天吧。&lt;/p&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</guid><pubDate>Thu, 12 Jun 2014 23:52:35 GMT</pubDate></item><item><title>2014年下半年计划</title><link>http://nicebug.github.io/posts/plan-in-201406-201412.html</link><dc:creator>nicebug</dc:creator><description>&lt;p&gt;越发觉得自己没有成长，工作上越来越迷茫，自己确实不是一个有很强目标性的人，
 时间总是在指缝就流走了，需要立一个计划：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;重新review下算法，目标：《数据结构与算法分析-C语音描述》所有习题必须在纸质版上完成&lt;/li&gt;
 &lt;li&gt;巩固下python，目标：《python源码剖析》？或者将算法分析使用python来实现一次？&lt;/li&gt;
-&lt;/ul&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/plan-in-201406-201412.html</guid><pubDate>Wed, 04 Jun 2014 12:38:17 GMT</pubDate></item><item><title>find all same file and replace then</title><link>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</link><description>&lt;!-- link: --&gt;
-&lt;!-- description: --&gt;
-&lt;!-- tags: --&gt;
-&lt;!-- date: 2014/05/08 17:56:09 --&gt;
-&lt;!-- title: find all same file and replace then --&gt;
-&lt;!-- slug: find-all-same-file-and-replace-then --&gt;
-&lt;p&gt;在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。&lt;/p&gt;
+&lt;/ul&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/plan-in-201406-201412.html</guid><pubDate>Wed, 04 Jun 2014 12:38:17 GMT</pubDate></item><item><title>find all same file and replace then</title><link>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</link><dc:creator>nicebug</dc:creator><description>&lt;p&gt;在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。&lt;/p&gt;
 &lt;pre class="code sh literal-block"&gt;
 &lt;span class="ln"&gt;1 &lt;/span&gt;find &lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;WORK_HOME&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; -name &lt;span class="s2"&gt;"${filename}"&lt;/span&gt; -type f | xargs -i cp -rf &lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; &lt;span class="o"&gt;{}&lt;/span&gt;
-&lt;/pre&gt;</description><guid>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</guid><pubDate>Thu, 08 May 2014 17:56:09 GMT</pubDate></item><item><title>nikola 6.4</title><link>http://nicebug.github.io/posts/nikola-64.html</link><description>&lt;!-- title: nikola 6.4 --&gt;
-&lt;!-- slug: nikola-64 --&gt;
-&lt;!-- date: 2014/04/28 13:16:04 --&gt;
-&lt;!-- tags: --&gt;
-&lt;!-- link: --&gt;
-&lt;!-- description: --&gt;
-&lt;!-- type: text --&gt;
-&lt;p&gt;nikola安装过程中出现unicode error，查到原因是阿里旺旺在注册中建立了一个中文后缀名文件，无语，删除之就解决了。&lt;/p&gt;</description><guid>http://nicebug.github.io/posts/nikola-64.html</guid><pubDate>Mon, 28 Apr 2014 13:16:04 GMT</pubDate></item></channel></rss>
+&lt;/pre&gt;</description><guid>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</guid><pubDate>Thu, 08 May 2014 17:56:09 GMT</pubDate></item><item><title>nikola 6.4</title><link>http://nicebug.github.io/posts/nikola-64.html</link><dc:creator>nicebug</dc:creator><description>&lt;p&gt;nikola安装过程中出现unicode error，查到原因是阿里旺旺在注册中建立了一个中文后缀名文件，无语，删除之就解决了。&lt;/p&gt;</description><guid>http://nicebug.github.io/posts/nikola-64.html</guid><pubDate>Mon, 28 Apr 2014 13:16:04 GMT</pubDate></item></channel></rss>

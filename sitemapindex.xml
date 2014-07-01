@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ <sitemap>
+  <loc>http://nicebug.github.io/categories/markdown.xml</loc>
+  <lastmod>2014-07-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://nicebug.github.io/categories/ri-chang-sheng-huo.xml</loc>
+  <lastmod>2014-07-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://nicebug.github.io/categories/technology.xml</loc>
+  <lastmod>2014-06-13</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://nicebug.github.io/rss.xml</loc>
+  <lastmod>2014-07-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://nicebug.github.io/sitemap.xml</loc>
+  <lastmod>2014-07-01</lastmod>
+ </sitemap>
+</sitemapindex>

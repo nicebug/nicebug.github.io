@@ -1,63 +1,104 @@
-<!DOCTYPE html><html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="nicebug">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>程序与测试 | Go Go</title>
+
     
             <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
         <link href="../assets/css/code.css" rel="stylesheet" type="text/css">
         <link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css">
         <link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <![endif]-->
+
+    
             <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 
-    
+      <link rel="canonical" href="http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html">
 
 
 
     
+        <!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
+
+    
+
+
+    
+
+    <meta name="author" content="nicebug">
+    
+        <meta name="og:title" content="程序与测试">
+        <meta name="og:url" content="http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html">
+            <meta name="og:description" content="今天有点感受挺深的，在分析一个系统时，身为测试的我在看到策划案子中会觉得很复杂，各种关系夹杂在其中，
+其中有个紧张度的概念，大概是紧张度控制AI的刷新，当时讨论说怎么控制不同人的紧张度，怎么管理紧张度，
+讨论的很激烈，从测试的角度分析了几种方法，当总是觉得有问题。
+后来实际跟程序交谈了下，程序在每个角色身上都维护了紧张度，每个循环检查玩家的紧张度，当某个玩家的紧张度达到波峰后就不再刷新AI，
+好吧">
+        <meta name="og:site_name" content="Go Go">
+        <meta name="og:type" content="article">
+
+    
+
+    
+
+
+
 </head>
 <body>
+
 <!-- Menubar -->
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="../">Go Go</a>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            
-                <li><a href="../archive.html">Archives</a>
-                </li><li><a href="../categories/index.html">Tags</a>
-                </li><li><a href="aboutme.html">About</a>
-                </li><li><a href="../rss.xml">RSS</a>
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://nicebug.github.io/">
 
-        </li></ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            
-            
+                <span id="blog-title">Go Go</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
                 
+                <li>
+<a href="../archive.html">Archives</a>
+                </li>
+<li>
+<a href="../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="aboutme.html">About</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
     <li>
     <a href="cheng-xu-yu-ce-shi.txt" id="sourcelink">Source</a>
     </li>
 
-        </ul>
-    </div><!-- /.navbar-collapse -->
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
 </nav>
 
 <!-- End of Menubar -->
@@ -67,21 +108,31 @@
         <!--Body content-->
         <div class="row">
             
-    <div class="postbox">
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
     
-    <h1>程序与测试</h1>
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">程序与测试</a></h1>
 
-    <hr>
-    <small>
-        Posted: <time class="published" datetime="2014-06-12T23:52:35">2014-06-12 23:52</time>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">nicebug</span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2014-06-12T23:52:35+00:00" itemprop="datePublished" title="Publication date">2014-06-12 23:52</time></a></p>
+                <p class="commentline">
+        
+    <a href="cheng-xu-yu-ce-shi.html#disqus_thread" data-disqus-identifier="cache/posts/cheng-xu-yu-ce-shi.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="cheng-xu-yu-ce-shi.txt" id="sourcelink">Source</a></p>
+
+        </div>
         
 
-        
-          |  More posts about
-            <a class="tag" href="../categories/ri-chang-sheng-huo.html"><span class="badge badge-info">日常生活</span></a>
+    </header>
 
-    </small>
-    <hr>
+    <div class="e-content entry-content" itemprop="articleBody text">
     <p>今天有点感受挺深的，在分析一个系统时，身为测试的我在看到策划案子中会觉得很复杂，各种关系夹杂在其中，
 其中有个紧张度的概念，大概是紧张度控制AI的刷新，当时讨论说怎么控制不同人的紧张度，怎么管理紧张度，
 讨论的很激烈，从测试的角度分析了几种方法，当总是觉得有问题。</p>
@@ -89,71 +140,99 @@
 好吧，做法很简单，数据的管理从实现上既简单又明了。</p>
 <p>回想了下，测试和程序真的差异很大，不只在收入上，测试干久了，缺少动手能力，这个对于搞技术的人来说真的太可怕了，
 这样差距就会越来越大，相应的收入差距也就越来越明显，或许真的有测试被淘汰的一天吧。</p>
+    </div>
+    <aside class="postpromonav">
+    <nav>
     
-    <ul class="pager">
-        <li class="previous">
-            <a href="plan-in-201406-201412.html">← Previous post</a>
-        </li>
-        <li class="next">
-            <a href="markdown-syntax.html">Next post →</a>
-        </li>
-    </ul>
+        <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/ri-chang-sheng-huo.html" rel="tag">日常生活</a></li>
+        </ul>
 
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="plan-in-201406-201412.html" rel="prev" title="2014年下半年计划">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="markdown-syntax.html" rel="next" title="markdown syntax">Next post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
         
         
         <div id="disqus_thread"></div>
-        <script type="text/javascript">
-        var disqus_shortname ="nikolademo";
-            var disqus_url="http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html";
-        var disqus_title="\u7a0b\u5e8f\u4e0e\u6d4b\u8bd5";
-        var disqus_identifier="cache\posts\cheng-xu-yu-ce-shi.html";
-        var disqus_config = function () {
+        <script>
+        var disqus_shortname ="nikolademo",
+            disqus_url="http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html",
+        disqus_title="\u7a0b\u5e8f\u4e0e\u6d4b\u8bd5",
+        disqus_identifier="cache/posts/cheng-xu-yu-ce-shi.html",
+        disqus_config = function () {
             this.language = "en";
         };
         (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
+        </section>
     
 
-    </div>
+</article>
+
+        
+       <script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
 
         </div>
         <!--End of body content-->
 
         <footer>
             Contents © 2014         <a href="mailto:alldoisbug@gmail.com">nicebug</a> - Powered by         <a href="http://getnikola.com">Nikola</a>         
+            
         </footer>
     </div>
 </div>
 
 
-            <script src="../assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-            <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../assets/js/jquery.colorbox-min.js" type="text/javascript"></script>
-
-
-	
+            <script src="../assets/js/jquery.min.js"></script>
+            <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/jquery.colorbox-min.js"></script>
+    
 <!-- Social buttons -->
 <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
 <a class="addthis_button_more">Share</a>
-<ul><li><a class="addthis_button_facebook"></a>
-</li><li><a class="addthis_button_google_plusone_share"></a>
-</li><li><a class="addthis_button_linkedin"></a>
-</li><li><a class="addthis_button_twitter"></a>
-</li></ul>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
 </div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
 <!-- End of social buttons -->
 
 
-    <script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
 
 
 </body>

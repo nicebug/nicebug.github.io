@@ -28,4 +28,4 @@ some code
 print "hello world"
 ```
 
-[Github](github.com)
+[Github](https://github.com/)
