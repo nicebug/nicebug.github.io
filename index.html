@@ -1,153 +1,462 @@
-<!DOCTYPE html><html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="唯一的一块净土.">
-    <meta name="author" content="nicebug">
-    <title>一个2BQA | 一个2BQA</title>
-    
-            <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <![endif]-->
-            <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Go Go | Go Go</title>
 
     
+            <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
     
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+
+      <link rel="canonical" href="http://nicebug.github.io/index.html">
+
+
+
+
     
+        <!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
+
+    
+
+
+
+
 </head>
 <body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
 <!-- Menubar -->
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href=".">一个2BQA</a>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            
-                <li><a href="archive.html">Archives</a>
-                </li><li><a href="categories/index.html">Tags</a>
-                </li><li><a href="rss.xml">RSS</a>
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://nicebug.github.io/">
 
-        </li></ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            
-            
+                <span id="blog-title">Go Go</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
                 
-        </ul>
-    </div><!-- /.navbar-collapse -->
+                <li>
+<a href="archive.html">Archives</a>
+                </li>
+<li>
+<a href="categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="posts/aboutme.html">About</a>
+                </li>
+<li>
+<a href="rss.xml">RSS</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
 </nav>
 
 <!-- End of Menubar -->
 
-<div class="container">
+<div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         <div class="row">
             
-        <div class="postbox">
-        <h1><a href="posts/plan-in-201406-201412.html">2014年下半年计划</a>
-        <small>  
-             Posted: <time class="published" datetime="2014-06-04T12:38:17">2014-06-04 12:38</time>
-        </small></h1>
-        <hr>
-        <p>越发觉得自己没有成长，工作上越来越迷茫，自己确实不是一个有很强目标性的人，
+            
+<div class="postindex">
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/learning-webpy.html" class="u-url">learning web.py</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">nicebug</span></p>
+            <p class="dateline"><a href="posts/learning-webpy.html" rel="bookmark"><time class="published dt-published" datetime="2015-02-05T03:49:39+00:00" title="2015-02-05 03:49">2015-02-05 03:49</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/learning-webpy.html#disqus_thread" data-disqus-identifier="cache/posts/learning-webpy.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div>
+<h3>web.py学习笔记</h3>
+<p>由于后台的几个需求，需要给测试同学构造gm指令以方便测试，思来想去还是搭建个快速的webserver来方便测试同学，django太庞大，tornado不大熟悉，别人介绍了下<a href="http://webpy.org/">web.py</a>，而且也不需要安装一大堆的第三方依赖库(原谅楼主有时候在服务器上不喜欢装第三方库的臭毛病吧)，甚至把web.py打包后都不需要额外安装任何东西。简单看了下web.py的文档，感觉还是入手还是比较容易。</p>
+<p>工程文档目录结构：
+main
+|---- conf (工程配置文件)
+|---- static (js，图片等)
+|---- template (html文件)
+|---- web (web.py的库文件)
+|---- config.py (目录，密码等配置)
+|---- index.py (路由文件)</p>
+<p>接着就可以开始coding，在web.py中需要指定url路由,当url请求中包含相应关键字时则跳转到相应的class中进行处理。</p>
+<pre class="code literal-block"><span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s">'/favicon.ico'</span><span class="p">,</span><span class="s">"Ico"</span><span class="p">,</span>
+    <span class="s">'/about'</span><span class="p">,</span> <span class="s">"About"</span><span class="p">,</span>
+    <span class="s">'/list_(.*)'</span><span class="p">,</span> <span class="s">"Script"</span><span class="p">,</span>
+    <span class="s">'/bin_upload(.*)'</span><span class="p">,</span> <span class="s">"Upload"</span><span class="p">,</span>
+    <span class="s">'/changetime(.*)'</span><span class="p">,</span> <span class="s">"ChangeTime"</span><span class="p">,</span>
+    <span class="s">'/(.*)'</span><span class="p">,</span><span class="s">'Index'</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">render</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">'template/'</span><span class="p">)</span>
+</pre>
+
+
+<p>以下以about跳转为例：</p>
+<pre class="code literal-block"><span class="k">class</span> <span class="nc">Upload</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="c"># save a file to disk</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="p">{})</span>
+        <span class="c">#print "bintag, filename:", x.bintag, x.file.filename</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">bintag</span> <span class="o">==</span> <span class="s">""</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">filename</span> <span class="o">==</span> <span class="s">""</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"&lt;script type=</span><span class="se">\"</span><span class="s">text/javascript</span><span class="se">\"</span><span class="s">&gt;alert(</span><span class="se">\"</span><span class="s">参数输入不正确，请检查参数!</span><span class="se">\"</span><span class="s">); </span><span class="se">\</span>
+<span class="s">                parent.location.href= parent.location.href;&lt;/script&gt;"</span>
+</pre>
+
+
+<p><strong>list_resconv.html</strong></p>
+<pre class="code literal-block"> <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"upload"</span> <span class="na">action=</span><span class="s">"bin_upload"</span> <span class="na">method=</span><span class="s">"POST"</span> <span class="na">enctype=</span><span class="s">"multipart/form-data"</span> <span class="na">target=</span><span class="s">"ifm"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;fieldset&gt;</span>
+                        <span class="nt">&lt;legend&gt;</span>bin上传路径:<span class="nt">&lt;/legend&gt;</span>
+
+                        <span class="nt">&lt;div&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"tag"</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>bin档目录名:<span class="nt">&lt;/label&gt;</span>
+                                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"bintag"</span> <span class="na">name=</span><span class="s">"bintag"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>  
+                                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"name"</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>bin文件:<span class="nt">&lt;/label&gt;</span>
+                                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">id=</span><span class="s">"fileselect"</span> <span class="na">name=</span><span class="s">"file"</span> <span class="na">title=</span><span class="s">"choose a file"</span> <span class="na">onchange=</span><span class="s">"this.form.submit();"</span><span class="nt">&gt;</span>
+                                <span class="c">&lt;!--&lt;p class="help-block"&gt;要上传的bin文件.&lt;/p&gt;--&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+
+                            <span class="c">&lt;!--&lt;div id="filedrag"&gt;or drop the file here&lt;/div&gt;--&gt;</span>
+
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/fieldset&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre>
+
+
+<p>当POST请求跳转到bin_upload时，则跳转到Upload进行相应的处理，Upload中处理接收的参数，进行后台逻辑处理。如果需要将处理后的数据返回前台，通常使用render来处理返回的数据<code>render.htmlfilename(parms)</code>的方式。</p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/markdown-syntax.html" class="u-url">markdown syntax</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">nicebug</span></p>
+            <p class="dateline"><a href="posts/markdown-syntax.html" rel="bookmark"><time class="published dt-published" datetime="2014-06-24T22:46:28+00:00" title="2014-06-24 22:46">2014-06-24 22:46</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/markdown-syntax.html#disqus_thread" data-disqus-identifier="cache/posts/markdown-syntax.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div>
+<!--
+  ::最后一次在成都测试组KM吧发文了
+-->
+
+<p>想写文章但一直纠结于文章的排版？屌丝哪有那么多时间在排版上纠结，于是试试最近比较火的<code>markdown</code>吧，从此告别各种一级标题，二级标题各种纠结的排版。</p>
+<p>Markdown的目标是实现[易读易写]。</p>
+<p>可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown语法受到一些既有 text-to-HTML的影响，包括Setext、atx、Textile、reStructuredText、Grutatext 和EtText，而最大灵感来源其实是纯文本电子邮件的格式。</p>
+<h2>区块元素</h2>
+<h3>标题</h3>
+<p>标题就是word中我们经常看到的标题1...，是文档的必备元素。以下为各级标题的效果展示和基础语法。</p>
+<h2>标题1</h2>
+<pre class="code literal-block"># 标题1
+</pre>
+
+
+<h3>标题2</h3>
+<pre class="code literal-block">## 标题2
+</pre>
+
+
+<h6>标题6</h6>
+<pre class="code literal-block">###### 标题6
+</pre>
+
+
+<h6># 标题7</h6>
+<pre class="code literal-block">####### 标题7；没有标题7了，该格式无效
+</pre>
+
+
+<h3>区块引用</h3>
+<p>Markdown标记区块引用类似email中用<code>&gt;</code>的引用方式。如果你还熟悉在 email 信件中的引言部分，你就知道怎么在 Markdown 文件中建立一个区块引用，那会看起来像是你自己先断好行，然后在每行的最前面加上<code>&gt;</code></p>
+<blockquote>
+<p>markdown syntax
+markdown2
+markdown 3</p>
+</blockquote>
+<pre class="code literal-block">&gt; markdown syntax
+&gt; markdown2
+&gt; markdown 3
+</pre>
+
+
+<p>区块引用可以嵌套（例如：引用内的引用），只要加上不同数量的<code>&gt;</code>即可。</p>
+<blockquote>
+<p>markdown syntax</p>
+<blockquote>
+<p>markdown2
+</p>
+</blockquote>
+</blockquote>
+<pre class="code literal-block">&gt; markdown syntax
+&gt; &gt; markdown2
+</pre>
+
+
+<h3>列表</h3>
+<p>Markdwon支持有序和无序两种列表。</p>
+<p>无序列表使用星号、加号或减号作为列表标记：</p>
+<ul>
+<li>列表1</li>
+<li>列表2</li>
+<li>列表3</li>
+</ul>
+<pre class="code literal-block">* 列表1
+* 列表2
+* 列表3
+</pre>
+
+
+<p>有序列表使用数字加英文句点的方式：</p>
+<ol>
+<li>有序1</li>
+<li>有序2</li>
+<li>有序3</li>
+</ol>
+<h3>代码区块</h3>
+<p>Here is an example of python:</p>
+<pre class="code literal-block"><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">print</span> <span class="s">"hello world"</span>
+</pre>
+
+
+<h3>分隔线</h3>
+<p>在一行中使用三个以上的星号，建号，底线来建立分隔线。</p>
+<hr>
+<hr>
+<pre class="code literal-block">-------------------
+**************
+</pre>
+
+
+<h2>区段元素</h2>
+<h3>链接</h3>
+<p>Markdown 支持两种形式的链接语法： 行内式和参考式两种形式。不管是哪一种，链接文字都是用 [方括号] 来标记。</p>
+<h4>行内式</h4>
+<p>This is <a href="http://www.oa.com/" title="tips">OA</a> website.</p>
+<pre class="code literal-block">This is [OA](http://www.oa.com/ "tips") website.
+</pre>
+
+
+<h4>参考式</h4>
+<p>This is <a href="http://www.oa.com/" title="tips">OA</a> website.</p>
+<pre class="code literal-block">This is [OA] [1] website.
+[1]: http://www.oa.com/ "tips"
+</pre>
+
+
+<h3>强调文字</h3>
+<p>Markdown使用星号(<code>*</code>)和底线(<code>_</code>)作为强调字词的符号。
+<em>this is markdown</em></p>
+<pre class="code literal-block">*this is markdown*
+</pre>
+
+
+<p><strong>this is markdown too</strong></p>
+<pre class="code literal-block">**this is markdown too**
+</pre>
+
+
+<p>本文只是markdown一些常用语法的小科普，更多详细内容请自行脑补。
+<a href="http://zh.wikipedia.org/wiki/Markdown" title="markdown维基百科">Markdown</a>
+<a href="http://maxiang.info/" title="比较有意思的插件">马克飞象</a></p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/cheng-xu-yu-ce-shi.html" class="u-url">程序与测试</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">nicebug</span></p>
+            <p class="dateline"><a href="posts/cheng-xu-yu-ce-shi.html" rel="bookmark"><time class="published dt-published" datetime="2014-06-12T23:52:35+00:00" title="2014-06-12 23:52">2014-06-12 23:52</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/cheng-xu-yu-ce-shi.html#disqus_thread" data-disqus-identifier="cache/posts/cheng-xu-yu-ce-shi.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div>
+<p>今天有点感受挺深的，在分析一个系统时，身为测试的我在看到策划案子中会觉得很复杂，各种关系夹杂在其中，
+其中有个紧张度的概念，大概是紧张度控制AI的刷新，当时讨论说怎么控制不同人的紧张度，怎么管理紧张度，
+讨论的很激烈，从测试的角度分析了几种方法，当总是觉得有问题。</p>
+<p>后来实际跟程序交谈了下，程序在每个角色身上都维护了紧张度，每个循环检查玩家的紧张度，当某个玩家的紧张度达到波峰后就不再刷新AI，
+好吧，做法很简单，数据的管理从实现上既简单又明了。</p>
+<p>回想了下，测试和程序真的差异很大，不只在收入上，测试干久了，缺少动手能力，这个对于搞技术的人来说真的太可怕了，
+这样差距就会越来越大，相应的收入差距也就越来越明显，或许真的有测试被淘汰的一天吧。</p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/plan-in-201406-201412.html" class="u-url">2014年下半年计划</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">nicebug</span></p>
+            <p class="dateline"><a href="posts/plan-in-201406-201412.html" rel="bookmark"><time class="published dt-published" datetime="2014-06-04T12:38:17+00:00" title="2014-06-04 12:38">2014-06-04 12:38</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/plan-in-201406-201412.html#disqus_thread" data-disqus-identifier="cache/posts/plan-in-201406-201412.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div>
+<p>越发觉得自己没有成长，工作上越来越迷茫，自己确实不是一个有很强目标性的人，
 时间总是在指缝就流走了，需要立一个计划：</p>
 <ul class="simple">
 <li>重新review下算法，目标：《数据结构与算法分析-C语音描述》所有习题必须在纸质版上完成</li>
 <li>巩固下python，目标：《python源码剖析》？或者将算法分析使用python来实现一次？</li>
 </ul>
-            
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/find-all-same-file-and-replace-then.html" class="u-url">find all same file and replace then</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">nicebug</span></p>
+            <p class="dateline"><a href="posts/find-all-same-file-and-replace-then.html" rel="bookmark"><time class="published dt-published" datetime="2014-05-08T17:56:09+00:00" title="2014-05-08 17:56">2014-05-08 17:56</time></a></p>
+                <p class="commentline">
         
-    <p>
-        <a href="posts/plan-in-201406-201412.html#disqus_thread" data-disqus-identifier="cache\posts\plan-in-201406-201412.html">Comments</a>
+    <a href="posts/find-all-same-file-and-replace-then.html#disqus_thread" data-disqus-identifier="cache/posts/find-all-same-file-and-replace-then.html">Comments</a>
 
 
-        </p></div>
-        <div class="postbox">
-        <h1><a href="posts/find-all-same-file-and-replace-then.html">find all same file and replace then</a>
-        <small>  
-             Posted: <time class="published" datetime="2014-05-08T17:56:09">2014-05-08 17:56</time>
-        </small></h1>
-        <hr>
-        <p>在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。</p>
-<pre class="code sh literal-block">
-<span class="ln">1 </span>find <span class="k">${</span><span class="nv">WORK_HOME</span><span class="k">}</span> -name <span class="s2">"${filename}"</span> -type f | xargs -i cp -rf <span class="k">${</span><span class="nv">filename</span><span class="k">}</span> <span class="o">{}</span>
-</pre>
-            
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <div>
+<p>在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。</p>
+<table class="codetable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><a href="posts/find-all-same-file-and-replace-then.html#rest_code_cdfee2598de14ed79c666e50df5d64ce-1">1</a></pre></div></td>
+<td class="code"><pre class="code sh"><a name="rest_code_cdfee2598de14ed79c666e50df5d64ce-1"></a>find <span class="si">${</span><span class="nv">WORK_HOME</span><span class="si">}</span> -name <span class="s2">"</span><span class="si">${</span><span class="nv">filename</span><span class="si">}</span><span class="s2">"</span> -type f <span class="p">|</span> xargs -i cp -rf <span class="si">${</span><span class="nv">filename</span><span class="si">}</span> <span class="o">{}</span>
+</pre></td>
+</tr></table>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/nikola-64.html" class="u-url">nikola 6.4</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">nicebug</span></p>
+            <p class="dateline"><a href="posts/nikola-64.html" rel="bookmark"><time class="published dt-published" datetime="2014-04-28T13:16:04+00:00" title="2014-04-28 13:16">2014-04-28 13:16</time></a></p>
+                <p class="commentline">
         
-    <p>
-        <a href="posts/find-all-same-file-and-replace-then.html#disqus_thread" data-disqus-identifier="cache\posts\find-all-same-file-and-replace-then.html">Comments</a>
+    <a href="posts/nikola-64.html#disqus_thread" data-disqus-identifier="cache/posts/nikola-64.html">Comments</a>
 
 
-        </p></div>
-        <div class="postbox">
-        <h1><a href="posts/nikola-64.html">nikola 6.4</a>
-        <small>  
-             Posted: <time class="published" datetime="2014-04-28T13:16:04">2014-04-28 13:16</time>
-        </small></h1>
-        <hr>
-        <p>nikola安装过程中出现unicode error，查到原因是阿里旺旺在注册中建立了一个中文后缀名文件，无语，删除之就解决了。</p>
-            
-        
-    <p>
-        <a href="posts/nikola-64.html#disqus_thread" data-disqus-identifier="cache\posts\nikola-64.html">Comments</a>
-
-
-        </p></div>
-    
-<div>
-<ul class="pager">
-</ul>
+        </p>
+</div>
+    </header>
+    <div class="e-content entry-content">
+    <p>nikola安装过程中出现unicode error，查到原因是阿里旺旺在注册中建立了一个中文后缀名文件，无语，删除之就解决了。</p>
+    </div>
+    </article>
 </div>
 
-    
+
+
         
-       <script type="text/javascript">var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.type="text/javascript";a.src="http://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("HEAD")[0]||document.getElementsByTagName("BODY")[0]).appendChild(a)}());</script>
+       <script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 
 
-	
+
 
 
         </div>
         <!--End of body content-->
 
         <footer>
-            Contents © 2014         <a href="mailto:alldoisbug@gmail.com">nicebug</a> - Powered by         <a href="http://getnikola.com">Nikola</a>         
+            Contents © 2015         <a href="mailto:alldoisbug@gmail.com">nicebug</a> - Powered by         <a href="http://getnikola.com">Nikola</a>         
+            
         </footer>
     </div>
 </div>
 
 
-            <script src="assets/js/all-nocdn.js" type="text/javascript"></script>
-
-
-	
+            <script src="assets/js/all-nocdn.js"></script>
+    
 <!-- Social buttons -->
 <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
 <a class="addthis_button_more">Share</a>
-<ul><li><a class="addthis_button_facebook"></a>
-</li><li><a class="addthis_button_google_plusone_share"></a>
-</li><li><a class="addthis_button_linkedin"></a>
-</li><li><a class="addthis_button_twitter"></a>
-</li></ul>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
 </div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
 <!-- End of social buttons -->
 
 
-    <script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+    
 
 
 </body>

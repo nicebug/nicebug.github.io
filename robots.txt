@@ -1,0 +1,2 @@
+Sitemap: http://nicebug.github.io/sitemapindex.xml
+

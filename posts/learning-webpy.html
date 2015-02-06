@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>learning web.py | Go Go</title>
+
+    
+            <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+      <link rel="canonical" href="http://nicebug.github.io/posts/learning-webpy.html">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
+
+    
+
+
+    
+
+    <meta name="author" content="nicebug">
+        <link rel="prev" href="markdown-syntax.html" title="markdown syntax" type="text/html">
+    
+    <meta property="og:site_name" content="Go Go">
+    <meta property="og:title" content="learning web.py">
+    <meta property="og:url" content="http://nicebug.github.io/posts/learning-webpy.html">
+    <meta property="og:description" content="web.py学习笔记
+由于后台的几个需求，需要给测试同学构造gm指令以方便测试，思来想去还是搭建个快速的webserver来方便测试同学，django太庞大，tornado不大熟悉，别人介绍了下web.py，而且也不需要安装一大堆的第三方依赖库(原谅楼主有时候在服务器上不喜欢装第三方库的臭毛病吧)，甚至把web.py打包后都不需要额外安装任何东西。简单看了下web.py的文档，感觉还是入手还是比较">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-02-05T03:49:39+00:00">
+           <meta property="article:tag" content="web.py">
+
+    
+
+    
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://nicebug.github.io/">
+
+                <span id="blog-title">Go Go</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li>
+<a href="../archive.html">Archives</a>
+                </li>
+<li>
+<a href="../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="aboutme.html">About</a>
+                </li>
+<li>
+<a href="../rss.xml">RSS</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+    <li>
+    <a href="learning-webpy.md" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="#" class="u-url">learning web.py</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">nicebug</span></p>
+            <p class="dateline"><a href="#" rel="bookmark"><time class="published dt-published" datetime="2015-02-05T03:49:39+00:00" itemprop="datePublished" title="2015-02-05 03:49">2015-02-05 03:49</time></a></p>
+                <p class="commentline">
+        
+    <a href="learning-webpy.html#disqus_thread" data-disqus-identifier="cache/posts/learning-webpy.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="learning-webpy.md" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<h3>web.py学习笔记</h3>
+<p>由于后台的几个需求，需要给测试同学构造gm指令以方便测试，思来想去还是搭建个快速的webserver来方便测试同学，django太庞大，tornado不大熟悉，别人介绍了下<a href="http://webpy.org/">web.py</a>，而且也不需要安装一大堆的第三方依赖库(原谅楼主有时候在服务器上不喜欢装第三方库的臭毛病吧)，甚至把web.py打包后都不需要额外安装任何东西。简单看了下web.py的文档，感觉还是入手还是比较容易。</p>
+<p>工程文档目录结构：
+main
+|---- conf (工程配置文件)
+|---- static (js，图片等)
+|---- template (html文件)
+|---- web (web.py的库文件)
+|---- config.py (目录，密码等配置)
+|---- index.py (路由文件)</p>
+<p>接着就可以开始coding，在web.py中需要指定url路由,当url请求中包含相应关键字时则跳转到相应的class中进行处理。</p>
+<pre class="code literal-block"><span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s">'/favicon.ico'</span><span class="p">,</span><span class="s">"Ico"</span><span class="p">,</span>
+    <span class="s">'/about'</span><span class="p">,</span> <span class="s">"About"</span><span class="p">,</span>
+    <span class="s">'/list_(.*)'</span><span class="p">,</span> <span class="s">"Script"</span><span class="p">,</span>
+    <span class="s">'/bin_upload(.*)'</span><span class="p">,</span> <span class="s">"Upload"</span><span class="p">,</span>
+    <span class="s">'/changetime(.*)'</span><span class="p">,</span> <span class="s">"ChangeTime"</span><span class="p">,</span>
+    <span class="s">'/(.*)'</span><span class="p">,</span><span class="s">'Index'</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">render</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">'template/'</span><span class="p">)</span>
+</pre>
+
+
+<p>以下以about跳转为例：</p>
+<pre class="code literal-block"><span class="k">class</span> <span class="nc">Upload</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="c"># save a file to disk</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="p">{})</span>
+        <span class="c">#print "bintag, filename:", x.bintag, x.file.filename</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">bintag</span> <span class="o">==</span> <span class="s">""</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">filename</span> <span class="o">==</span> <span class="s">""</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"&lt;script type=</span><span class="se">\"</span><span class="s">text/javascript</span><span class="se">\"</span><span class="s">&gt;alert(</span><span class="se">\"</span><span class="s">参数输入不正确，请检查参数!</span><span class="se">\"</span><span class="s">); </span><span class="se">\</span>
+<span class="s">                parent.location.href= parent.location.href;&lt;/script&gt;"</span>
+</pre>
+
+
+<p><strong>list_resconv.html</strong></p>
+<pre class="code literal-block"> <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"upload"</span> <span class="na">action=</span><span class="s">"bin_upload"</span> <span class="na">method=</span><span class="s">"POST"</span> <span class="na">enctype=</span><span class="s">"multipart/form-data"</span> <span class="na">target=</span><span class="s">"ifm"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;fieldset&gt;</span>
+                        <span class="nt">&lt;legend&gt;</span>bin上传路径:<span class="nt">&lt;/legend&gt;</span>
+
+                        <span class="nt">&lt;div&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"tag"</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>bin档目录名:<span class="nt">&lt;/label&gt;</span>
+                                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"bintag"</span> <span class="na">name=</span><span class="s">"bintag"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+                            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>  
+                                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"name"</span> <span class="na">class=</span><span class="s">"col-sm-2 control-label"</span><span class="nt">&gt;</span>bin文件:<span class="nt">&lt;/label&gt;</span>
+                                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">id=</span><span class="s">"fileselect"</span> <span class="na">name=</span><span class="s">"file"</span> <span class="na">title=</span><span class="s">"choose a file"</span> <span class="na">onchange=</span><span class="s">"this.form.submit();"</span><span class="nt">&gt;</span>
+                                <span class="c">&lt;!--&lt;p class="help-block"&gt;要上传的bin文件.&lt;/p&gt;--&gt;</span>
+                            <span class="nt">&lt;/div&gt;</span>
+
+                            <span class="c">&lt;!--&lt;div id="filedrag"&gt;or drop the file here&lt;/div&gt;--&gt;</span>
+
+                        <span class="nt">&lt;/div&gt;</span>
+                    <span class="nt">&lt;/fieldset&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre>
+
+
+<p>当POST请求跳转到bin_upload时，则跳转到Upload进行相应的处理，Upload中处理接收的参数，进行后台逻辑处理。如果需要将处理后的数据返回前台，通常使用render来处理返回的数据<code>render.htmlfilename(parms)</code>的方式。</p>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+        <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../categories/webpy.html" rel="tag">web.py</a></li>
+        </ul>
+
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="markdown-syntax.html" rel="prev" title="markdown syntax">Previous post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nikolademo",
+            disqus_url="http://nicebug.github.io/posts/learning-webpy.html",
+        disqus_title="learning web.py",
+        disqus_identifier="cache/posts/learning-webpy.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+
+</article>
+
+        
+       <script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:alldoisbug@gmail.com">nicebug</a> - Powered by         <a href="http://getnikola.com">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference,!.islink").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+    
+
+
+</body>
+</html>

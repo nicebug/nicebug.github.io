@@ -1,10 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>一个2BQA</title><link>http://nicebug.github.io/</link><description>唯一的一块净土.</description><atom:link href="http://nicebug.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><lastBuildDate>Wed, 04 Jun 2014 15:27:46 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2014年下半年计划</title><link>http://nicebug.github.io/posts/plan-in-201406-201412.html</link><description>&lt;p&gt;越发觉得自己没有成长，工作上越来越迷茫，自己确实不是一个有很强目标性的人，
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Go Go</title><link>http://nicebug.github.io/</link><description>唯一的一块净土.</description><atom:link href="http://nicebug.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 06 Feb 2015 16:45:35 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>learning web.py</title><link>http://nicebug.github.io/posts/learning-webpy.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;h3&gt;web.py学习笔记&lt;/h3&gt;
+&lt;p&gt;由于后台的几个需求，需要给测试同学构造gm指令以方便测试，思来想去还是搭建个快速的webserver来方便测试同学，django太庞大，tornado不大熟悉，别人介绍了下&lt;a href="http://webpy.org/"&gt;web.py&lt;/a&gt;，而且也不需要安装一大堆的第三方依赖库(原谅楼主有时候在服务器上不喜欢装第三方库的臭毛病吧)，甚至把web.py打包后都不需要额外安装任何东西。简单看了下web.py的文档，感觉还是入手还是比较容易。&lt;/p&gt;
+&lt;p&gt;工程文档目录结构：
+main
+|---- conf (工程配置文件)
+|---- static (js，图片等)
+|---- template (html文件)
+|---- web (web.py的库文件)
+|---- config.py (目录，密码等配置)
+|---- index.py (路由文件)&lt;/p&gt;
+&lt;p&gt;接着就可以开始coding，在web.py中需要指定url路由,当url请求中包含相应关键字时则跳转到相应的class中进行处理。&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;urls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="s"&gt;'/favicon.ico'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;"Ico"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;'/about'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"About"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;'/list_(.*)'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"Script"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;'/bin_upload(.*)'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"Upload"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;'/changetime(.*)'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"ChangeTime"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;'/(.*)'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'Index'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;render&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;web&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'template/'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;以下以about跳转为例：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Upload&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;POST&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kw&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="c"&gt;# save a file to disk&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;web&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{})&lt;/span&gt;
+        &lt;span class="c"&gt;#print "bintag, filename:", x.bintag, x.file.filename&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bintag&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;""&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;""&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"&amp;lt;script type=&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;text/javascript&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;&amp;gt;alert(&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;参数输入不正确，请检查参数!&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;); &lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="s"&gt;                parent.location.href= parent.location.href;&amp;lt;/script&amp;gt;"&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;strong&gt;list_resconv.html&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="code literal-block"&gt; &lt;span class="nt"&gt;&amp;lt;form&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"upload"&lt;/span&gt; &lt;span class="na"&gt;action=&lt;/span&gt;&lt;span class="s"&gt;"bin_upload"&lt;/span&gt; &lt;span class="na"&gt;method=&lt;/span&gt;&lt;span class="s"&gt;"POST"&lt;/span&gt; &lt;span class="na"&gt;enctype=&lt;/span&gt;&lt;span class="s"&gt;"multipart/form-data"&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;"ifm"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;fieldset&amp;gt;&lt;/span&gt;
+                        &lt;span class="nt"&gt;&amp;lt;legend&amp;gt;&lt;/span&gt;bin上传路径:&lt;span class="nt"&gt;&amp;lt;/legend&amp;gt;&lt;/span&gt;
+
+                        &lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+                            &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"form-group"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                                &lt;span class="nt"&gt;&amp;lt;label&lt;/span&gt; &lt;span class="na"&gt;for=&lt;/span&gt;&lt;span class="s"&gt;"tag"&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"col-sm-2 control-label"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;bin档目录名:&lt;span class="nt"&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+                                &lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text"&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"bintag"&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"bintag"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                            &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+                            &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"form-group"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;  
+                                &lt;span class="nt"&gt;&amp;lt;label&lt;/span&gt; &lt;span class="na"&gt;for=&lt;/span&gt;&lt;span class="s"&gt;"name"&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"col-sm-2 control-label"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;bin文件:&lt;span class="nt"&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+                                &lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"file"&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"fileselect"&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"file"&lt;/span&gt; &lt;span class="na"&gt;title=&lt;/span&gt;&lt;span class="s"&gt;"choose a file"&lt;/span&gt; &lt;span class="na"&gt;onchange=&lt;/span&gt;&lt;span class="s"&gt;"this.form.submit();"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                                &lt;span class="c"&gt;&amp;lt;!--&amp;lt;p class="help-block"&amp;gt;要上传的bin文件.&amp;lt;/p&amp;gt;--&amp;gt;&lt;/span&gt;
+                            &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+                            &lt;span class="c"&gt;&amp;lt;!--&amp;lt;div id="filedrag"&amp;gt;or drop the file here&amp;lt;/div&amp;gt;--&amp;gt;&lt;/span&gt;
+
+                        &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;/fieldset&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;当POST请求跳转到bin_upload时，则跳转到Upload进行相应的处理，Upload中处理接收的参数，进行后台逻辑处理。如果需要将处理后的数据返回前台，通常使用render来处理返回的数据&lt;code&gt;render.htmlfilename(parms)&lt;/code&gt;的方式。&lt;/p&gt;&lt;/div&gt;</description><category>web.py</category><guid>http://nicebug.github.io/posts/learning-webpy.html</guid><pubDate>Thu, 05 Feb 2015 03:49:39 GMT</pubDate></item><item><title>markdown syntax</title><link>http://nicebug.github.io/posts/markdown-syntax.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;!--
+  ::最后一次在成都测试组KM吧发文了
+--&gt;
+
+&lt;p&gt;想写文章但一直纠结于文章的排版？屌丝哪有那么多时间在排版上纠结，于是试试最近比较火的&lt;code&gt;markdown&lt;/code&gt;吧，从此告别各种一级标题，二级标题各种纠结的排版。&lt;/p&gt;
+&lt;p&gt;Markdown的目标是实现[易读易写]。&lt;/p&gt;
+&lt;p&gt;可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown语法受到一些既有 text-to-HTML的影响，包括Setext、atx、Textile、reStructuredText、Grutatext 和EtText，而最大灵感来源其实是纯文本电子邮件的格式。&lt;/p&gt;
+&lt;h2&gt;区块元素&lt;/h2&gt;
+&lt;h3&gt;标题&lt;/h3&gt;
+&lt;p&gt;标题就是word中我们经常看到的标题1...，是文档的必备元素。以下为各级标题的效果展示和基础语法。&lt;/p&gt;
+&lt;h2&gt;标题1&lt;/h2&gt;
+&lt;pre class="code literal-block"&gt;# 标题1
+&lt;/pre&gt;
+
+
+&lt;h3&gt;标题2&lt;/h3&gt;
+&lt;pre class="code literal-block"&gt;## 标题2
+&lt;/pre&gt;
+
+
+&lt;h6&gt;标题6&lt;/h6&gt;
+&lt;pre class="code literal-block"&gt;###### 标题6
+&lt;/pre&gt;
+
+
+&lt;h6&gt;# 标题7&lt;/h6&gt;
+&lt;pre class="code literal-block"&gt;####### 标题7；没有标题7了，该格式无效
+&lt;/pre&gt;
+
+
+&lt;h3&gt;区块引用&lt;/h3&gt;
+&lt;p&gt;Markdown标记区块引用类似email中用&lt;code&gt;&amp;gt;&lt;/code&gt;的引用方式。如果你还熟悉在 email 信件中的引言部分，你就知道怎么在 Markdown 文件中建立一个区块引用，那会看起来像是你自己先断好行，然后在每行的最前面加上&lt;code&gt;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;markdown syntax
+markdown2
+markdown 3&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class="code literal-block"&gt;&amp;gt; markdown syntax
+&amp;gt; markdown2
+&amp;gt; markdown 3
+&lt;/pre&gt;
+
+
+&lt;p&gt;区块引用可以嵌套（例如：引用内的引用），只要加上不同数量的&lt;code&gt;&amp;gt;&lt;/code&gt;即可。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;markdown syntax&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;markdown2
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;pre class="code literal-block"&gt;&amp;gt; markdown syntax
+&amp;gt; &amp;gt; markdown2
+&lt;/pre&gt;
+
+
+&lt;h3&gt;列表&lt;/h3&gt;
+&lt;p&gt;Markdwon支持有序和无序两种列表。&lt;/p&gt;
+&lt;p&gt;无序列表使用星号、加号或减号作为列表标记：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;列表1&lt;/li&gt;
+&lt;li&gt;列表2&lt;/li&gt;
+&lt;li&gt;列表3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;* 列表1
+* 列表2
+* 列表3
+&lt;/pre&gt;
+
+
+&lt;p&gt;有序列表使用数字加英文句点的方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;有序1&lt;/li&gt;
+&lt;li&gt;有序2&lt;/li&gt;
+&lt;li&gt;有序3&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;代码区块&lt;/h3&gt;
+&lt;p&gt;Here is an example of python:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;"hello world"&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;h3&gt;分隔线&lt;/h3&gt;
+&lt;p&gt;在一行中使用三个以上的星号，建号，底线来建立分隔线。&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;pre class="code literal-block"&gt;-------------------
+**************
+&lt;/pre&gt;
+
+
+&lt;h2&gt;区段元素&lt;/h2&gt;
+&lt;h3&gt;链接&lt;/h3&gt;
+&lt;p&gt;Markdown 支持两种形式的链接语法： 行内式和参考式两种形式。不管是哪一种，链接文字都是用 [方括号] 来标记。&lt;/p&gt;
+&lt;h4&gt;行内式&lt;/h4&gt;
+&lt;p&gt;This is &lt;a href="http://www.oa.com/" title="tips"&gt;OA&lt;/a&gt; website.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;This is [OA](http://www.oa.com/ "tips") website.
+&lt;/pre&gt;
+
+
+&lt;h4&gt;参考式&lt;/h4&gt;
+&lt;p&gt;This is &lt;a href="http://www.oa.com/" title="tips"&gt;OA&lt;/a&gt; website.&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;This is [OA] [1] website.
+[1]: http://www.oa.com/ "tips"
+&lt;/pre&gt;
+
+
+&lt;h3&gt;强调文字&lt;/h3&gt;
+&lt;p&gt;Markdown使用星号(&lt;code&gt;*&lt;/code&gt;)和底线(&lt;code&gt;_&lt;/code&gt;)作为强调字词的符号。
+&lt;em&gt;this is markdown&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;*this is markdown*
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;strong&gt;this is markdown too&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;**this is markdown too**
+&lt;/pre&gt;
+
+
+&lt;p&gt;本文只是markdown一些常用语法的小科普，更多详细内容请自行脑补。
+&lt;a href="http://zh.wikipedia.org/wiki/Markdown" title="markdown维基百科"&gt;Markdown&lt;/a&gt;
+&lt;a href="http://maxiang.info/" title="比较有意思的插件"&gt;马克飞象&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><guid>http://nicebug.github.io/posts/markdown-syntax.html</guid><pubDate>Tue, 24 Jun 2014 22:46:28 GMT</pubDate></item><item><title>程序与测试</title><link>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;p&gt;今天有点感受挺深的，在分析一个系统时，身为测试的我在看到策划案子中会觉得很复杂，各种关系夹杂在其中，
+其中有个紧张度的概念，大概是紧张度控制AI的刷新，当时讨论说怎么控制不同人的紧张度，怎么管理紧张度，
+讨论的很激烈，从测试的角度分析了几种方法，当总是觉得有问题。&lt;/p&gt;
+&lt;p&gt;后来实际跟程序交谈了下，程序在每个角色身上都维护了紧张度，每个循环检查玩家的紧张度，当某个玩家的紧张度达到波峰后就不再刷新AI，
+好吧，做法很简单，数据的管理从实现上既简单又明了。&lt;/p&gt;
+&lt;p&gt;回想了下，测试和程序真的差异很大，不只在收入上，测试干久了，缺少动手能力，这个对于搞技术的人来说真的太可怕了，
+这样差距就会越来越大，相应的收入差距也就越来越明显，或许真的有测试被淘汰的一天吧。&lt;/p&gt;&lt;/div&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</guid><pubDate>Thu, 12 Jun 2014 23:52:35 GMT</pubDate></item><item><title>2014年下半年计划</title><link>http://nicebug.github.io/posts/plan-in-201406-201412.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;p&gt;越发觉得自己没有成长，工作上越来越迷茫，自己确实不是一个有很强目标性的人，
 时间总是在指缝就流走了，需要立一个计划：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;重新review下算法，目标：《数据结构与算法分析-C语音描述》所有习题必须在纸质版上完成&lt;/li&gt;
 &lt;li&gt;巩固下python，目标：《python源码剖析》？或者将算法分析使用python来实现一次？&lt;/li&gt;
-&lt;/ul&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/plan-in-201406-201412.html</guid><pubDate>Wed, 04 Jun 2014 12:38:17 GMT</pubDate></item><item><title>find all same file and replace then</title><link>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</link><description>&lt;p&gt;在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。&lt;/p&gt;
-&lt;pre class="code sh literal-block"&gt;
-&lt;span class="ln"&gt;1 &lt;/span&gt;find &lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;WORK_HOME&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; -name &lt;span class="s2"&gt;"${filename}"&lt;/span&gt; -type f | xargs -i cp -rf &lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; &lt;span class="o"&gt;{}&lt;/span&gt;
-&lt;/pre&gt;</description><guid>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</guid><pubDate>Thu, 08 May 2014 17:56:09 GMT</pubDate></item><item><title>nikola 6.4</title><link>http://nicebug.github.io/posts/nikola-64.html</link><description>&lt;p&gt;nikola安装过程中出现unicode error，查到原因是阿里旺旺在注册中建立了一个中文后缀名文件，无语，删除之就解决了。&lt;/p&gt;</description><guid>http://nicebug.github.io/posts/nikola-64.html</guid><pubDate>Mon, 28 Apr 2014 13:16:04 GMT</pubDate></item></channel></rss>
+&lt;/ul&gt;&lt;/div&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/plan-in-201406-201412.html</guid><pubDate>Wed, 04 Jun 2014 12:38:17 GMT</pubDate></item><item><title>find all same file and replace then</title><link>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;p&gt;在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。&lt;/p&gt;
+&lt;table class="codetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;a href="http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html#rest_code_cdfee2598de14ed79c666e50df5d64ce-1"&gt;1&lt;/a&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code sh"&gt;&lt;a name="rest_code_cdfee2598de14ed79c666e50df5d64ce-1"&gt;&lt;/a&gt;find &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;WORK_HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -name &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; -type f &lt;span class="p"&gt;|&lt;/span&gt; xargs -i cp -rf &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="o"&gt;{}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</description><guid>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</guid><pubDate>Thu, 08 May 2014 17:56:09 GMT</pubDate></item><item><title>nikola 6.4</title><link>http://nicebug.github.io/posts/nikola-64.html</link><dc:creator>nicebug</dc:creator><description>&lt;p&gt;nikola安装过程中出现unicode error，查到原因是阿里旺旺在注册中建立了一个中文后缀名文件，无语，删除之就解决了。&lt;/p&gt;</description><guid>http://nicebug.github.io/posts/nikola-64.html</guid><pubDate>Mon, 28 Apr 2014 13:16:04 GMT</pubDate></item></channel></rss>
