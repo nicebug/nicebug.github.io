@@ -13,13 +13,16 @@
 由于后台的几个需求，需要给测试同学构造gm指令以方便测试，思来想去还是搭建个快速的webserver来方便测试同学，django太庞大，tornado不大熟悉，别人介绍了下[web.py](http://webpy.org/)，而且也不需要安装一大堆的第三方依赖库(原谅楼主有时候在服务器上不喜欢装第三方库的臭毛病吧)，甚至把web.py打包后都不需要额外安装任何东西。简单看了下web.py的文档，感觉还是入手还是比较容易。
 
 工程文档目录结构：
+
+```
 main
-|---- conf (工程配置文件)
-|---- static (js，图片等)
-|---- template (html文件)
-|---- web (web.py的库文件)
-|---- config.py (目录，密码等配置)
-|---- index.py (路由文件)
+    |---- conf (工程配置文件)
+    |---- static (js，图片等)
+    |---- template (html文件)
+    |---- web (web.py的库文件)
+    |---- config.py (目录，密码等配置)
+    |---- index.py (路由文件)
+```
 
 接着就可以开始coding，在web.py中需要指定url路由,当url请求中包含相应关键字时则跳转到相应的class中进行处理。
 ```python
@@ -36,7 +39,7 @@ render = web.template.render('template/')
 ```
 
 以下以about跳转为例：
-```python
+``` python
 class Upload:
     def POST(self, *args, **kw):
         # save a file to disk

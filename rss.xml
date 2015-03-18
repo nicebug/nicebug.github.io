@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Go Go</title><link>http://nicebug.github.io/</link><description>唯一的一块净土.</description><atom:link href="http://nicebug.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 06 Feb 2015 16:45:35 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>learning web.py</title><link>http://nicebug.github.io/posts/learning-webpy.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;h3&gt;web.py学习笔记&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Go for it</title><link>http://nicebug.github.io/</link><description>go for what you want</description><atom:link href="http://nicebug.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>zh_cn</language><lastBuildDate>Wed, 18 Mar 2015 19:06:24 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>learning web.py</title><link>http://nicebug.github.io/posts/learning-webpy.html</link><dc:creator>damonhu</dc:creator><description>&lt;div&gt;&lt;h3&gt;web.py学习笔记&lt;/h3&gt;
 &lt;p&gt;由于后台的几个需求，需要给测试同学构造gm指令以方便测试，思来想去还是搭建个快速的webserver来方便测试同学，django太庞大，tornado不大熟悉，别人介绍了下&lt;a href="http://webpy.org/"&gt;web.py&lt;/a&gt;，而且也不需要安装一大堆的第三方依赖库(原谅楼主有时候在服务器上不喜欢装第三方库的臭毛病吧)，甚至把web.py打包后都不需要额外安装任何东西。简单看了下web.py的文档，感觉还是入手还是比较容易。&lt;/p&gt;
-&lt;p&gt;工程文档目录结构：
-main
-|---- conf (工程配置文件)
-|---- static (js，图片等)
-|---- template (html文件)
-|---- web (web.py的库文件)
-|---- config.py (目录，密码等配置)
-|---- index.py (路由文件)&lt;/p&gt;
+&lt;p&gt;工程文档目录结构：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;main
+    |---- conf (工程配置文件)
+    |---- static (js，图片等)
+    |---- template (html文件)
+    |---- web (web.py的库文件)
+    |---- config.py (目录，密码等配置)
+    |---- index.py (路由文件)
+&lt;/pre&gt;
+
+
 &lt;p&gt;接着就可以开始coding，在web.py中需要指定url路由,当url请求中包含相应关键字时则跳转到相应的class中进行处理。&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;urls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
     &lt;span class="s"&gt;'/favicon.ico'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;"Ico"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -59,7 +62,7 @@ main
 &lt;/pre&gt;
 
 
-&lt;p&gt;当POST请求跳转到bin_upload时，则跳转到Upload进行相应的处理，Upload中处理接收的参数，进行后台逻辑处理。如果需要将处理后的数据返回前台，通常使用render来处理返回的数据&lt;code&gt;render.htmlfilename(parms)&lt;/code&gt;的方式。&lt;/p&gt;&lt;/div&gt;</description><category>web.py</category><guid>http://nicebug.github.io/posts/learning-webpy.html</guid><pubDate>Thu, 05 Feb 2015 03:49:39 GMT</pubDate></item><item><title>markdown syntax</title><link>http://nicebug.github.io/posts/markdown-syntax.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;!--
+&lt;p&gt;当POST请求跳转到bin_upload时，则跳转到Upload进行相应的处理，Upload中处理接收的参数，进行后台逻辑处理。如果需要将处理后的数据返回前台，通常使用render来处理返回的数据&lt;code&gt;render.htmlfilename(parms)&lt;/code&gt;的方式。&lt;/p&gt;&lt;/div&gt;</description><category>web.py</category><guid>http://nicebug.github.io/posts/learning-webpy.html</guid><pubDate>Thu, 05 Feb 2015 03:49:39 GMT</pubDate></item><item><title>markdown syntax</title><link>http://nicebug.github.io/posts/markdown-syntax.html</link><dc:creator>damonhu</dc:creator><description>&lt;div&gt;&lt;!--
   ::最后一次在成都测试组KM吧发文了
 --&gt;
 
@@ -181,17 +184,17 @@ markdown 3&lt;/p&gt;
 
 &lt;p&gt;本文只是markdown一些常用语法的小科普，更多详细内容请自行脑补。
 &lt;a href="http://zh.wikipedia.org/wiki/Markdown" title="markdown维基百科"&gt;Markdown&lt;/a&gt;
-&lt;a href="http://maxiang.info/" title="比较有意思的插件"&gt;马克飞象&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><guid>http://nicebug.github.io/posts/markdown-syntax.html</guid><pubDate>Tue, 24 Jun 2014 22:46:28 GMT</pubDate></item><item><title>程序与测试</title><link>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;p&gt;今天有点感受挺深的，在分析一个系统时，身为测试的我在看到策划案子中会觉得很复杂，各种关系夹杂在其中，
+&lt;a href="http://maxiang.info/" title="比较有意思的插件"&gt;马克飞象&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><guid>http://nicebug.github.io/posts/markdown-syntax.html</guid><pubDate>Tue, 24 Jun 2014 14:46:28 GMT</pubDate></item><item><title>程序与测试</title><link>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</link><dc:creator>damonhu</dc:creator><description>&lt;div&gt;&lt;p&gt;今天有点感受挺深的，在分析一个系统时，身为测试的我在看到策划案子中会觉得很复杂，各种关系夹杂在其中，
 其中有个紧张度的概念，大概是紧张度控制AI的刷新，当时讨论说怎么控制不同人的紧张度，怎么管理紧张度，
 讨论的很激烈，从测试的角度分析了几种方法，当总是觉得有问题。&lt;/p&gt;
 &lt;p&gt;后来实际跟程序交谈了下，程序在每个角色身上都维护了紧张度，每个循环检查玩家的紧张度，当某个玩家的紧张度达到波峰后就不再刷新AI，
 好吧，做法很简单，数据的管理从实现上既简单又明了。&lt;/p&gt;
 &lt;p&gt;回想了下，测试和程序真的差异很大，不只在收入上，测试干久了，缺少动手能力，这个对于搞技术的人来说真的太可怕了，
-这样差距就会越来越大，相应的收入差距也就越来越明显，或许真的有测试被淘汰的一天吧。&lt;/p&gt;&lt;/div&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</guid><pubDate>Thu, 12 Jun 2014 23:52:35 GMT</pubDate></item><item><title>2014年下半年计划</title><link>http://nicebug.github.io/posts/plan-in-201406-201412.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;p&gt;越发觉得自己没有成长，工作上越来越迷茫，自己确实不是一个有很强目标性的人，
+这样差距就会越来越大，相应的收入差距也就越来越明显，或许真的有测试被淘汰的一天吧。&lt;/p&gt;&lt;/div&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/cheng-xu-yu-ce-shi.html</guid><pubDate>Thu, 12 Jun 2014 15:52:35 GMT</pubDate></item><item><title>2014年下半年计划</title><link>http://nicebug.github.io/posts/plan-in-201406-201412.html</link><dc:creator>damonhu</dc:creator><description>&lt;div&gt;&lt;p&gt;越发觉得自己没有成长，工作上越来越迷茫，自己确实不是一个有很强目标性的人，
 时间总是在指缝就流走了，需要立一个计划：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;重新review下算法，目标：《数据结构与算法分析-C语音描述》所有习题必须在纸质版上完成&lt;/li&gt;
 &lt;li&gt;巩固下python，目标：《python源码剖析》？或者将算法分析使用python来实现一次？&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/plan-in-201406-201412.html</guid><pubDate>Wed, 04 Jun 2014 12:38:17 GMT</pubDate></item><item><title>find all same file and replace then</title><link>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;p&gt;在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。&lt;/p&gt;
-&lt;table class="codetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;a href="http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html#rest_code_cdfee2598de14ed79c666e50df5d64ce-1"&gt;1&lt;/a&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code sh"&gt;&lt;a name="rest_code_cdfee2598de14ed79c666e50df5d64ce-1"&gt;&lt;/a&gt;find &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;WORK_HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -name &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; -type f &lt;span class="p"&gt;|&lt;/span&gt; xargs -i cp -rf &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="o"&gt;{}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</description><guid>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</guid><pubDate>Thu, 08 May 2014 17:56:09 GMT</pubDate></item><item><title>nikola 6.4</title><link>http://nicebug.github.io/posts/nikola-64.html</link><dc:creator>nicebug</dc:creator><description>&lt;p&gt;nikola安装过程中出现unicode error，查到原因是阿里旺旺在注册中建立了一个中文后缀名文件，无语，删除之就解决了。&lt;/p&gt;</description><guid>http://nicebug.github.io/posts/nikola-64.html</guid><pubDate>Mon, 28 Apr 2014 13:16:04 GMT</pubDate></item></channel></rss>
+&lt;/ul&gt;&lt;/div&gt;</description><category>日常生活</category><guid>http://nicebug.github.io/posts/plan-in-201406-201412.html</guid><pubDate>Wed, 04 Jun 2014 04:38:17 GMT</pubDate></item><item><title>find all same file and replace then</title><link>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</link><dc:creator>damonhu</dc:creator><description>&lt;div&gt;&lt;p&gt;在linux下查找同名文件，并进行替换的一小点总结，find命令超过我的预期。&lt;/p&gt;
+&lt;table class="codetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;a href="http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html#rest_code_62aea32422a14e8e974c0bdac65aaf3c-1"&gt;1&lt;/a&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code bash"&gt;&lt;a name="rest_code_62aea32422a14e8e974c0bdac65aaf3c-1"&gt;&lt;/a&gt;find &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;WORK_HOME&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -name &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; -type f &lt;span class="p"&gt;|&lt;/span&gt; xargs -i cp -rf &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="o"&gt;{}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</description><guid>http://nicebug.github.io/posts/find-all-same-file-and-replace-then.html</guid><pubDate>Thu, 08 May 2014 09:56:09 GMT</pubDate></item><item><title>nikola 6.4</title><link>http://nicebug.github.io/posts/nikola-64.html</link><dc:creator>damonhu</dc:creator><description>&lt;p&gt;nikola安装过程中出现unicode error，查到原因是阿里旺旺在注册中建立了一个中文后缀名文件，无语，删除之就解决了。&lt;/p&gt;</description><guid>http://nicebug.github.io/posts/nikola-64.html</guid><pubDate>Mon, 28 Apr 2014 05:16:04 GMT</pubDate></item></channel></rss>

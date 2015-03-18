@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Go Go (markdown)</title><link>http://nicebug.github.io/</link><description></description><atom:link href="http://nicebug.github.io/categories/markdown.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 06 Feb 2015 16:45:35 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>markdown syntax</title><link>http://nicebug.github.io/posts/markdown-syntax.html</link><dc:creator>nicebug</dc:creator><description>&lt;div&gt;&lt;!--
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Go for it (markdown)</title><link>http://nicebug.github.io/</link><description></description><atom:link href="http://nicebug.github.io/categories/markdown.xml" type="application/rss+xml" rel="self"></atom:link><language>zh_cn</language><lastBuildDate>Wed, 18 Mar 2015 19:06:24 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>markdown syntax</title><link>http://nicebug.github.io/posts/markdown-syntax.html</link><dc:creator>damonhu</dc:creator><description>&lt;div&gt;&lt;!--
   ::最后一次在成都测试组KM吧发文了
 --&gt;
 
@@ -121,4 +121,4 @@ markdown 3&lt;/p&gt;
 
 &lt;p&gt;本文只是markdown一些常用语法的小科普，更多详细内容请自行脑补。
 &lt;a href="http://zh.wikipedia.org/wiki/Markdown" title="markdown维基百科"&gt;Markdown&lt;/a&gt;
-&lt;a href="http://maxiang.info/" title="比较有意思的插件"&gt;马克飞象&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><guid>http://nicebug.github.io/posts/markdown-syntax.html</guid><pubDate>Tue, 24 Jun 2014 22:46:28 GMT</pubDate></item></channel></rss>
+&lt;a href="http://maxiang.info/" title="比较有意思的插件"&gt;马克飞象&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>markdown</category><guid>http://nicebug.github.io/posts/markdown-syntax.html</guid><pubDate>Tue, 24 Jun 2014 14:46:28 GMT</pubDate></item></channel></rss>
